@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不動産業者専門 SNS運用代行サービス | JAPAN AGENT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設定 */
+        :root {
+            --navy: #001f3f;
+            --gold: #c5a05b;
+            --light-gray: #f8f9fa;
+            --green: #06C755;
+            --white: #ffffff;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            /* デスクトップ表示時に固定ヘッダー分の余白を確保 */
+            padding-top: 80px;
+        }
+
+        /* clamp()関数を使ったレスポンシブ見出し */
+        .h1-responsive {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.3;
+            font-weight: 900;
+        }
+        .h2-responsive {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            line-height: 1.5;
+            font-weight: 900;
+        }
+        .h3-responsive {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        /* カードの影 */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* 背景テクスチャ */
+        .bg-texture {
+             background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+             background-size: 10px 10px;
+        }
+
+        /* 人気プランのバッジ */
+        .popular-plan {
+            position: relative;
+            border: 2px solid var(--gold);
+        }
+        @media (min-width: 1024px) {
+            .popular-plan {
+                transform: scale(1.05);
+            }
+        }
+        .popular-plan::before {
+            content: '人気No.1';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            background-image: linear-gradient(45deg, #dcb365, #c5a05b);
+            color: var(--navy);
+            padding: 0.3rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* ボタンのスタイル */
+        .cta-button {
+            font-weight: bold;
+            border-radius: 9999px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+        .btn-gold {
+            background-image: linear-gradient(45deg, #dcb365, #c5a05b);
+            color: var(--navy);
+        }
+        .btn-green {
+            background-image: linear-gradient(45deg, #25D366, #06C755);
+            color: var(--white);
+        }
+
+        /* よくある質問 アコーディオン */
+        .faq-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* ★「3つの理由」の装飾 */
+        .decorative-underline {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .decorative-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-image: linear-gradient(45deg, #dcb365, #c5a05b);
+            border-radius: 2px;
+        }
+        
+        /* ★スクロールアニメーション */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* スマホ表示時に固定フッター分の余白を確保 */
+        @media (max-width: 767px) {
+            body {
+                padding-top: 0;
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    
+    <!-- PC・タブレット用 固定ヘッダー -->
+    <header class="fixed top-0 left-0 right-0 z-50 hidden md:block shadow-md" style="background-color: var(--white);">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="text-xl font-bold" style="color: var(--navy);">
+                JAPAN AGENT
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:080-5273-8522" class="cta-button btn-gold text-lg py-3 px-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 006.255 6.255l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C6.477 18 2 13.523 2 8V5a1 1 0 011-1h.001z"/>
+                    </svg>
+                    お電話でのお問い合わせ
+                </a>
+                <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg py-3 px-8">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+                    LINEで無料相談
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- スマホ用 固定フッター -->
+    <footer class="fixed bottom-0 left-0 right-0 z-50 md:hidden grid grid-cols-2 gap-px" style="background-color: var(--navy);">
+        <a href="tel:080-5273-8522" class="flex justify-center items-center py-4 font-bold text-lg" style="background-image: linear-gradient(45deg, #dcb365, #c5a05b); color: var(--navy);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 006.255 6.255l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C6.477 18 2 13.523 2 8V5a1 1 0 011-1h.001z"/>
+            </svg>
+            電話
+        </a>
+        <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="flex justify-center items-center py-4 font-bold text-lg" style="background-color: var(--green); color: var(--white);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+            LINE
+        </a>
+    </footer>
+
+    <!-- 1. ヒーローセクション -->
+    <section class="text-white text-center relative overflow-hidden py-24 md:py-36">
+        <div class="absolute inset-0" style="background-color: var(--navy);"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="h1-responsive mb-6 scroll-animate">
+                宅建士が担当。<br>SNS運用、ぜんぶ<span style="color: var(--gold);">丸投げ</span>。
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed scroll-animate" style="transition-delay: 0.2s;">
+                不動産実務経験者が撮影・編集・投稿をすべて代行。<br class="hidden sm:block">
+                社長は“質の高い反響”だけにご期待ください。
+            </p>
+            <div class="scroll-animate" style="transition-delay: 0.4s;">
+                <a href="#cta" class="cta-button btn-gold text-lg md:text-xl py-4 px-10">
+                    まずは無料で相談してみる
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 問題提起セクション -->
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="h2-responsive mb-12 scroll-animate" style="color: var(--navy);">こんなお悩みありませんか？</h2>
+            <ul class="max-w-2xl mx-auto text-left space-y-4 scroll-animate">
+                <li class="bg-white p-6 rounded-lg border-l-4" style="border-color: var(--gold); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">SNSの重要性はわかるが、営業マンに片手間でやらせている</li>
+                <li class="bg-white p-6 rounded-lg border-l-4" style="border-color: var(--gold); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">撮影や編集に時間がとられ、本来の追客や内見対応が疎かになっている</li>
+                <li class="bg-white p-6 rounded-lg border-l-4" style="border-color: var(--gold); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">外部の業者に頼んだが、業界のことがわからず投稿内容がズレていた</li>
+                <li class="bg-white p-6 rounded-lg border-l-4" style="border-color: var(--gold); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">結局、広告費を垂れ流すだけの集客から抜け出せない</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. 解決策・ベネフィットセクション -->
+    <section class="py-16 md:py-24" style="background-color: var(--light-gray);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="scroll-animate">
+                <h2 class="h2-responsive mb-4" style="color: var(--navy);">そのお悩み<br class="md:hidden">不動産専門のSNS運用代行が<br><span style="color: var(--gold);">すべて解決します！</span></h2>
+                <p class="text-lg text-gray-600 mb-16 decorative-underline">私たちが選ばれる「3つの理由」</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white rounded-lg p-8 card-shadow scroll-animate" style="transition-delay: 0.2s;">
+                    <h3 class="h3-responsive mb-4" style="color: var(--navy);">不動産の"当事者"としての<br class="hidden lg:block">専門性</h3>
+                    <p class="text-gray-600">ルームツアー動画を撮影しようにも、鍵の手配や間取り図、概要書類の整理など結局不動産実務経験者の知識が必要な場面は沢山あります。当サービスでは不動産実務経験者によるロケを行い、クライアント様には丸投げして頂き、反響対応に集中して頂くことが可能です。</p>
+                </div>
+                <div class="bg-white rounded-lg p-8 card-shadow scroll-animate" style="transition-delay: 0.4s;">
+                    <h3 class="h3-responsive mb-4" style="color: var(--navy);">営業を止めない<br class="hidden lg:block">"真の"丸投げ運用</h3>
+                    <p class="text-gray-600">スタッフの方が撮影に同行できない場合は、こちらで全て撮影を済ませます。ご出演が難しい場合は別途インフルエンサーを手配することも可能です。また「ナレーションが苦手」であれば、別途AIによるナレーション生成システムも導入可能。御社はコア業務に100%集中できます。</p>
+                </div>
+                <div class="bg-white rounded-lg p-8 card-shadow scroll-animate" style="transition-delay: 0.6s;">
+                    <h3 class="h3-responsive mb-4" style="color: var(--navy);">"成約"から逆算した<br class="hidden lg:block">SNS戦略</h3>
+                    <p class="text-gray-600">エンタメ系とは一線を画す「不動産特化」のノウハウ。私自身がSNS経で成約まで繋げた経験を基に、フォロワー数ではなく「来店・成約に繋がるか」を唯一の指標としてアカウントを設計・運用します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 運営者紹介セクション -->
+     <section class="py-16 md:py-24" style="background-color: var(--navy);">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 items-center text-white scroll-animate">
+                <div class="md:col-span-1 text-center">
+                    <img src="img/profile.jpg" alt="運営者の顔写真" class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-full object-cover">
+                </div>
+                <div class="md:col-span-2 text-center md:text-left">
+                    <h2 class="h2-responsive mb-4">JAPAN AGENT 代表</h2>
+                    <p class="text-lg mb-2"><strong>山本 真大</strong><br>宅地建物取引士</p>
+                    <p class="leading-relaxed text-gray-300">不動産営業マンとして自身でSNSを運用し、ポータルサイトに頼らない集客を実現した経験から、多くの不動産業者様が抱える「SNS集客の悩み」を解決したいという想いで当サービスを開始しました。現場を知る”当事者”として、貴社の事業成長に貢献します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 私の実績セクション -->
+    <section class="py-16 md:py-24" style="background-color: var(--light-gray);">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center scroll-animate">
+                <div class="text-center md:text-left">
+                    <h2 class="h2-responsive mb-6" style="color: var(--navy);">
+                        ポータルサイトに頼らない、<br>
+                        ファン化が生んだ<span style="color: var(--gold);">月間売上100万円の実績</span>
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        賃貸営業マン時代、高額な掲載料がかかるポータルサイトに頼るのではなく、TikTokでの自己ブランディングと顧客のファン化に注力。結果として、個人のアカウント一つで<strong class="text-xl">月間100万円の売上</strong>を安定して達成しました。
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        アカウント開設から1年で<strong class="text-xl">延べ300名以上</strong>からのお問い合わせを獲得し、「あなたにお願いしたい」と直接指名をいただく集客モデルを確立しました。この再現性の高いノウハウで、貴社の資産となるSNSアカウントを構築します。
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img src="img/analytics_sample.jpg" alt="SNSの分析画面のサンプル画像（縦長）" class="rounded-lg shadow-xl w-auto h-auto max-h-[500px] md:max-h-[600px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. お客様の声セクション -->
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="h2-responsive text-center mb-12 scroll-animate" style="color: var(--navy);">導入企業様の声</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg p-8 md:p-12 card-shadow scroll-animate">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 text-center">
+                        <img src="img/customer_voice.jpg" alt="お客様の顔写真" class="w-40 h-40 mx-auto rounded-full object-cover mb-4">
+                        <p class="font-bold text-lg" style="color: var(--navy);">コミコミ不動産福岡</p>
+                        <p class="text-gray-600">上原様</p>
+                    </div>
+                    <div class="md:col-span-2 text-left">
+                        <h3 class="font-bold text-xl md:text-2xl mb-4" style="color: var(--navy);">
+                            「SNSに詳しいだけでなく、不動産の実務を“わかってくれる”のが一番の安心材料でした」
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            以前は社員が通常業務の合間にSNSを更新していましたが、クオリティはまばらで、何より疲弊していました。山本さんに丸投げしてからは、投稿内容の質が劇的に向上。驚いたのは、ただオシャレなだけでなく「この物件ならこの切り口」という提案が的確なこと。おかげで社員はコア業務に集中でき、SNS経由の質の高い反響も月5件以上安定して入るようになり、本当に助かっています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 料金プランセクション -->
+    <section id="plan" class="py-16 md:py-24" style="background-color: var(--light-gray);">
+        <div class="container mx-auto px-6 text-center">
+             <div class="scroll-animate">
+                <h2 class="h2-responsive mb-4" style="color: var(--navy);">料金プラン</h2>
+                <p class="text-lg mb-16 text-gray-700">
+                    他社で一般的な<span class="font-bold">初期アカウント設計費用</span>などは
+                    <span class="block font-bold text-2xl" style="color: var(--gold);">一切いただきません。</span>
+                </p>
+            </div>
+             <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                 <!-- エントリープラン -->
+                 <div class="bg-white border border-gray-200 rounded-lg p-8 card-shadow flex flex-col h-full scroll-animate" style="transition-delay: 0.2s;">
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">エントリープラン</h3>
+                     <p class="text-gray-600 mb-4">SNS初心者さん向け</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">120,000<span class="text-lg font-normal">円/月</span></p>
+                     <ul class="text-left space-y-3 my-6">
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月10本投稿</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月1回の撮影</li>
+                     </ul>
+                     <div class="mt-auto pt-6">
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                     </div>
+                 </div>
+                 <!-- スタンダードプラン -->
+                 <div class="bg-white rounded-lg p-8 card-shadow flex flex-col h-full popular-plan scroll-animate" style="transition-delay: 0.4s;">
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">スタンダードプラン</h3>
+                     <p class="text-gray-600 mb-4">定価より18,000円お得</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">162,000<span class="text-lg font-normal">円/月</span></p>
+                     <ul class="text-left space-y-3 my-6">
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月15本投稿</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月2回の撮影</li>
+                     </ul>
+                     <div class="mt-auto pt-6">
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                     </div>
+                 </div>
+                 <!-- プレミアムプラン -->
+                 <div class="bg-white border border-gray-200 rounded-lg p-8 card-shadow flex flex-col h-full scroll-animate" style="transition-delay: 0.6s;">
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">プレミアムプラン</h3>
+                     <p class="text-gray-600 mb-4">より着実に成果を上げたい方へ</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">288,000<span class="text-lg font-normal">円/月</span></p>
+                     <ul class="text-left space-y-3 my-6">
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月30本投稿</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月3回の撮影</li>
+                     </ul>
+                     <div class="mt-auto pt-6">
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- オプションプラン -->
+             <div class="mt-16 max-w-4xl mx-auto rounded-lg p-8 text-left grid md:grid-cols-2 gap-8 items-center scroll-animate" style="background-color: var(--navy); color: var(--white);">
+                <div>
+                    <h3 class="h3-responsive mb-4 font-bold">
+                        <span style="color: var(--gold);">特別なオプション</span><br>
+                        インフルエンサーを起用しませんか？
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        弊社はライバー事務所も運営しております。貴社の物件紹介動画にインフルエンサーをモデルとして出演させることで、他社との圧倒的な差別化を実現します。「人」の魅力が加わることで、物件の価値や親しみやすさが飛躍的に向上します。
+                    </p>
+                    <p class="text-sm mt-4 text-gray-400">※出演料はライバーのフォロワー数などによって変動するため、別途お見積もりが必要です。</p>
+                </div>
+                <div>
+                    <img src="img/option_liver.jpg" alt="ライバーのイメージ画像" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. よくある質問セクション -->
+    <section id="faq" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="h2-responsive text-center mb-12 scroll-animate" style="color: var(--navy);">よくあるご質問</h2>
+            <div class="space-y-4 scroll-animate">
+                <details class="faq-item bg-white rounded-lg card-shadow">
+                    <summary class="text-lg" style="color: var(--navy);">
+                        <span>どのSNSに対応していますか？</span>
+                        <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    </summary>
+                    <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
+                        <p>弊社では、不動産集客において最も反響率の高いTikTokの運用に特化しております。ショート動画のプロとして、最大の成果をお約束します。</p>
+                    </div>
+                </details>
+                <details class="faq-item bg-white rounded-lg card-shadow">
+                    <summary class="text-lg" style="color: var(--navy);">
+                        <span>契約期間はどうなっていますか？</span>
+                        <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    </summary>
+                    <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
+                        <p>SNS運用は中長期的な視点で成果を最大化させるため、最低契約期間を6ヶ月とさせていただいております。貴社の資産となるアカウントを着実に育て上げるための期間とお考えいただけますと幸いです。</p>
+                    </div>
+                </details>
+                <details class="faq-item bg-white rounded-lg card-shadow">
+                    <summary class="text-lg" style="color: var(--navy);">
+                        <span>投稿前に内容を確認することはできますか？</span>
+                        <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    </summary>
+                    <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
+                        <p>はい、もちろんです。投稿はお客様にご確認いただき、承認を得てから公開いたします。貴社のブランドイメージを損なうことは決してございません。</p>
+                    </div>
+                </details>
+                <details class="faq-item bg-white rounded-lg card-shadow">
+                    <summary class="text-lg" style="color: var(--navy);">
+                        <span>DMなどの反響対応もお願いできますか？</span>
+                        <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    </summary>
+                    <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
+                        <p>反響へのご対応は、お客様の営業担当者様に直接お願いしております。熱量の高いお客様を取りこぼさず、スピーディーな内見や来店に繋げるためには、物件を最もよく知るプロである貴社が直接ご対応いただくのが最善と考えているためです。私たちは、質の高い反響を創出することに全力を注ぎます。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 9. CTAセクション -->
+    <section id="cta" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="scroll-animate">
+                <h2 class="h2-responsive mb-6" style="color: var(--navy);">さあ、SNS集客をプロに任せて、<br>事業を次のステージへ進めませんか？</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    まずは、貴社の状況をお聞かせください。<br>無理な営業は一切いたしません。相談・お見積もりは無料です。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+                        LINEで無料相談・お見積もり
+                    </a>
+                    <a href="tel:080-5273-8522" class="cta-button btn-gold text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 006.255 6.255l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C6.477 18 2 13.523 2 8V5a1 1 0 011-1h.001z"/></svg>
+                        電話でお問い合わせ
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <!-- フッター -->
+    <footer class="py-8" style="background-color: var(--navy);">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 JAPAN AGENT. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const targets = document.querySelectorAll('.scroll-animate');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        });
+    </script>
+</body>
+</html>
+
