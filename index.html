@@ -39,7 +39,7 @@
             font-weight: 900;
         }
         .h3-responsive {
-            font-size: clamp(1.3rem, 5.5vw, 1.9rem); /* ★文字サイズを大きく調整 */
+            font-size: clamp(1.3rem, 5.5vw, 1.9rem);
             line-height: 1.5;
             font-weight: 700;
         }
@@ -71,7 +71,7 @@
             }
         }
         .popular-plan::before {
-            content: '人気No.1';
+            content: 'おすすめ';
             position: absolute;
             top: -15px;
             left: 50%;
@@ -170,7 +170,7 @@
             }
         }
         
-        /* ★タブレットサイズ以上で見出しの自動改行を無効化 */
+        /* タブレットサイズ以上で見出しの自動改行を無効化 */
         @media (min-width: 768px) {
             .h1-responsive, .h2-responsive, .h3-responsive {
                 white-space: nowrap;
@@ -194,7 +194,7 @@
                     お電話でのお問い合わせ
                 </a>
                 <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg py-3 px-8">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7 5V19H17V17H9V5z"/></svg>
                     LINEで無料相談
                 </a>
             </div>
@@ -210,7 +210,7 @@
             電話
         </a>
         <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="flex justify-center items-center py-4 font-bold text-lg" style="background-color: var(--green); color: var(--white);">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7 5V19H17V17H9V5z"/></svg>
             LINE
         </a>
     </footer>
@@ -257,7 +257,9 @@
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="bg-white rounded-lg p-8 card-shadow scroll-animate" style="transition-delay: 0.2s;">
                     <h3 class="h3-responsive mb-4" style="color: var(--navy);">不動産の"当事者"としての<br class="hidden lg:block">専門性</h3>
-                    <p class="text-gray-600">ルームツアー動画を撮影しようにも、鍵の手配や間取り図、概要書類の整理など結局不動産実務経験者の知識が必要な場面は沢山あります。当サービスでは不動産実務経験者によるロケを行い、クライアント様には丸投げして頂き、反響対応に集中して頂くことが可能です。</p>
+                    <p class="text-gray-600">
+                        「宅建士が担当」の価値は、専門用語の説明が不要なこと。物件のセールスポイントを弊社が的確に判断し台本を作成、鍵の受け渡しもスムーズに連携可能です。不動産実務を熟知しているからこそ、貴社の手間を極限まで削減します。
+                    </p>
                 </div>
                 <div class="bg-white rounded-lg p-8 card-shadow scroll-animate" style="transition-delay: 0.4s;">
                     <h3 class="h3-responsive mb-4" style="color: var(--navy);">営業を止めない<br class="hidden lg:block">"真の"丸投げ運用</h3>
@@ -271,7 +273,46 @@
         </div>
     </section>
 
-    <!-- 4. 運営者紹介セクション -->
+    <!-- ROI訴求セクション -->
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center scroll-animate">
+                <h2 class="h2-responsive mb-4" style="color: var(--navy);">
+                    その広告費、<br><span style="color: var(--gold);">会社の資産</span>に変えませんか？
+                </h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    ポータルサイトの広告費は"消費"ですが、SNSアカウントは"資産"です。<br class="hidden md:block">
+                    私たちのサービスは、単なる運用代行ではなく、未来の反響を生み出し続けるための戦略的投資です。
+                </p>
+            </div>
+            <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-center scroll-animate">
+                <div class="bg-white border-2 border-red-500 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4" style="color: #ef4444;">ポータルサイト広告</h3>
+                    <p class="text-4xl font-bold" style="color: var(--navy);">20<span class="text-lg font-normal">万円/月</span></p>
+                    <hr class="my-6">
+                    <ul class="text-left space-y-3 text-gray-600">
+                        <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">×</span>掲載を止めると反響ゼロ</li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">×</span>価格競争に巻き込まれる</li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">×</span>他社との差別化が困難</li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">×</span>会社の資産にならない</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-2 rounded-lg p-8 popular-plan">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--navy);">JAPAN AGENT</h3>
+                    <p class="text-4xl font-bold" style="color: var(--navy);">15<span class="text-lg font-normal">万円/月〜</span></p>
+                    <hr class="my-6">
+                    <ul class="text-left space-y-3 text-gray-600">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span>ファン化した顧客が集まる</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span>会社のブランド価値が向上</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span>採用活動にも好影響</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span>永続的なデジタル資産になる</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 運営者紹介セクション -->
      <section class="py-16 md:py-24" style="background-color: var(--navy);">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 items-center text-white scroll-animate">
@@ -287,11 +328,11 @@
         </div>
     </section>
 
-    <!-- 5. 私の実績セクション -->
+    <!-- 実績セクション -->
     <section class="py-16 md:py-24" style="background-color: var(--light-gray);">
         <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center scroll-animate">
-                <div class="text-center md:text-left">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center scroll-animate">
+                <div class="md:w-1/2 text-center md:text-left">
                     <h2 class="h2-responsive mb-6" style="color: var(--navy);">
                         ポータルサイトに頼らない、<br>
                         ファン化が生んだ<span style="color: var(--gold);">月間売上100万円の実績</span>
@@ -303,14 +344,15 @@
                         アカウント開設から1年で<strong class="text-xl">延べ300名以上</strong>からのお問い合わせを獲得し、「あなたにお願いしたい」と直接指名をいただく集客モデルを確立しました。この再現性の高いノウハウで、貴社の資産となるSNSアカウントを構築します。
                     </p>
                 </div>
-                <div class="flex justify-center items-center">
+                <div class="md:w-1/2 flex justify-center items-center">
                     <img src="img/analytics_sample.jpg" alt="SNSの分析画面のサンプル画像（縦長）" class="rounded-lg shadow-xl w-auto h-auto max-h-[500px] md:max-h-[600px]">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. お客様の声セクション -->
+    <!-- お客様の声セクション -->
+    <!--
     <section class="py-16 md:py-24">
         <div class="container mx-auto px-6">
             <h2 class="h2-responsive text-center mb-12 scroll-animate" style="color: var(--navy);">導入企業様の声</h2>
@@ -333,82 +375,118 @@
             </div>
         </div>
     </section>
+    -->
 
-    <!-- 7. 料金プランセクション -->
+    <!-- 料金プランセクション -->
     <section id="plan" class="py-16 md:py-24" style="background-color: var(--light-gray);">
         <div class="container mx-auto px-6 text-center">
              <div class="scroll-animate">
                 <h2 class="h2-responsive mb-4" style="color: var(--navy);">料金プラン</h2>
                 <p class="text-lg mb-16 text-gray-700">
-                    他社で一般的な<span class="font-bold">初期アカウント設計費用</span>などは
-                    <span class="block font-bold text-2xl" style="color: var(--gold);">一切いただきません。</span>
+                    貴社の状況や目標に合わせ、最適なプランをご提案します。<br>
+                    <span class="font-bold">※全プラン共通で、別途戦略的アカウント初期構築費用(50,000円〜)を頂戴しております。</span>
                 </p>
             </div>
              <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-                 <!-- エントリープラン -->
+                 <!-- プランA -->
                  <div class="bg-white border border-gray-200 rounded-lg p-8 card-shadow flex flex-col h-full scroll-animate" style="transition-delay: 0.2s;">
-                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">エントリープラン</h3>
-                     <p class="text-gray-600 mb-4">SNS初心者さん向け</p>
-                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">120,000<span class="text-lg font-normal">円/月</span></p>
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">ベーシック・シュート</h3>
+                     <p class="text-gray-600 mb-4">月1回の撮影</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">150,000<span class="text-lg font-normal">円/月</span></p>
                      <ul class="text-left space-y-3 my-6">
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月10本投稿</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月1回の撮影</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>動画 8〜10本 制作</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影 / 編集 / 投稿</li>
                      </ul>
                      <div class="mt-auto pt-6">
-                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランで相談</a>
                      </div>
                  </div>
-                 <!-- スタンダードプラン -->
+                 <!-- プランB -->
                  <div class="bg-white rounded-lg p-8 card-shadow flex flex-col h-full popular-plan scroll-animate" style="transition-delay: 0.4s;">
-                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">スタンダードプラン</h3>
-                     <p class="text-gray-600 mb-4">定価より18,000円お得</p>
-                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">162,000<span class="text-lg font-normal">円/月</span></p>
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">グロース・シュート</h3>
+                     <p class="text-gray-600 mb-4">月2回の撮影</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">280,000<span class="text-lg font-normal">円/月</span></p>
                      <ul class="text-left space-y-3 my-6">
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月15本投稿</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月2回の撮影</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>動画 16〜20本 制作</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影 / 編集 / 投稿</li>
                      </ul>
                      <div class="mt-auto pt-6">
-                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランで相談</a>
                      </div>
                  </div>
-                 <!-- プレミアムプラン -->
+                 <!-- プランC -->
                  <div class="bg-white border border-gray-200 rounded-lg p-8 card-shadow flex flex-col h-full scroll-animate" style="transition-delay: 0.6s;">
-                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">プレミアムプラン</h3>
-                     <p class="text-gray-600 mb-4">より着実に成果を上げたい方へ</p>
-                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">288,000<span class="text-lg font-normal">円/月</span></p>
+                     <h3 class="text-2xl font-bold mb-2" style="color: var(--navy);">マーケットリーダー</h3>
+                     <p class="text-gray-600 mb-4">月4回の撮影</p>
+                     <p class="text-4xl font-bold my-4" style="color: var(--navy);">520,000<span class="text-lg font-normal">円/月</span></p>
                      <ul class="text-left space-y-3 my-6">
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月30本投稿</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影/編集/投稿込み</li>
-                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>毎月3回の撮影</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>動画 32〜40本 制作</li>
+                         <li class="flex items-center"><svg class="w-5 h-5 mr-2" style="color: var(--gold);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>撮影 / 編集 / 投稿</li>
+                         <li class="flex items-center font-bold" style="color: var(--gold);"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>月1回の戦略ミーティング</li>
+                         <li class="flex items-center font-bold" style="color: var(--gold);"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>詳細な月次レポート</li>
+                          <li class="flex items-center font-bold" style="color: var(--gold);"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>TikTok広告 運用代行</li>
                      </ul>
                      <div class="mt-auto pt-6">
-                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランに申し込む</a>
+                        <a href="#cta" class="cta-button btn-gold text-lg py-3 px-8 w-full">このプランで相談</a>
                      </div>
                  </div>
              </div>
 
-             <!-- オプションプラン -->
-             <div class="mt-16 max-w-4xl mx-auto rounded-lg p-8 text-left grid md:grid-cols-2 gap-8 items-center scroll-animate" style="background-color: var(--navy); color: var(--white);">
-                <div>
-                    <h3 class="h3-responsive mb-4 font-bold">
-                        <span style="color: var(--gold);">特別なオプション</span><br>
-                        インフルエンサーを起用しませんか？
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        弊社はライバー事務所も運営しております。貴社の物件紹介動画にインフルエンサーをモデルとして出演させることで、他社との圧倒的な差別化を実現します。「人」の魅力が加わることで、物件の価値や親しみやすさが飛躍的に向上します。
-                    </p>
-                    <p class="text-sm mt-4 text-gray-400">※出演料はライバーのフォロワー数などによって変動するため、別途お見積もりが必要です。</p>
+             <!-- オプションサービス -->
+             <div class="mt-16 max-w-5xl mx-auto text-left scroll-animate">
+                <h3 class="h3-responsive mb-8 text-center" style="color: var(--navy);">オプションサービス</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Option Card 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden card-shadow flex flex-col">
+                        <img src="img/option_ai.png" alt="AIナレーションのイメージ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2" style="color: var(--navy);">AIナレーション追加</h4>
+                            <p class="text-gray-600 mb-4 flex-grow">プロ品質のAIナレーションで、動画の訴求力を一層高めます。顔出し不要で、視聴者の聴覚に訴えかける魅力的なコンテンツを作成します。</p>
+                            <p class="text-right font-bold text-2xl" style="color: var(--navy);">+5,000<span class="text-base font-normal">円/本</span></p>
+                        </div>
+                    </div>
+                    <!-- Option Card 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden card-shadow flex flex-col">
+                        <img src="img/option_liver.png" alt="インフルエンサーキャスティングのイメージ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2" style="color: var(--navy);">インフルエンサーキャスティング</h4>
+                            <p class="text-gray-600 mb-4 flex-grow">貴社の物件やブランドイメージに合ったインフルエンサーを起用し、ルームツアー動画に出演。圧倒的な認知度と信頼性を獲得し、ターゲット層へ強力にアプローチします。</p>
+                            <p class="text-right font-bold text-2xl" style="color: var(--navy);">30,000<span class="text-base font-normal">円〜</span></p>
+                        </div>
+                    </div>
+                    <!-- Option Card 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden card-shadow flex flex-col">
+                        <img src="img/option_instagram.png" alt="Instagramリール投稿のイメージ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2" style="color: var(--navy);">Instagramリールへの同時投稿</h4>
+                            <p class="text-gray-600 mb-4 flex-grow">TikTokで制作した高品質なショート動画を、Instagramリールにも最適化して投稿。異なるプラットフォームのユーザー層にアプローチし、集客の間口を広げます。</p>
+                            <p class="text-right font-bold text-2xl" style="color: var(--navy);">+40,000<span class="text-base font-normal">円/月</span></p>
+                        </div>
+                    </div>
+                    <!-- Option Card 4 -->
+                    <div class="bg-white rounded-lg overflow-hidden card-shadow flex flex-col">
+                        <img src="img/option_line.png" alt="LINE公式運用代行のイメージ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2" style="color: var(--navy);">LINE公式運用代行</h4>
+                            <p class="text-gray-600 mb-4 flex-grow">SNSからの受け皿となるLINE公式アカウントの構築から運用までを代行。顧客との継続的な接点を創出し、来店予約や成約に繋がる関係性を築きます。</p>
+                            <p class="text-right font-bold text-2xl" style="color: var(--navy);">+5,000<span class="text-base font-normal">円/月〜</span></p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img src="img/option_liver.jpg" alt="ライバーのイメージ画像" class="rounded-lg shadow-lg w-full">
-                </div>
+             </div>
+            
+            <!-- エンタープライズプラン -->
+            <div class="mt-12 max-w-4xl mx-auto rounded-lg p-8 text-center scroll-animate" style="background-color: var(--navy); color: var(--white);">
+                <h3 class="h3-responsive mb-4 font-bold">複数店舗・法人様向け</h3>
+                <p class="text-gray-300 leading-relaxed max-w-xl mx-auto">
+                    複数アカウントの統括管理、スタッフ様へのSNS研修、全店舗を横断した分析レポートなどをパッケージにした、特別なエンタープライズプランもご用意しております。詳しくはお問い合わせください。
+                </p>
             </div>
+
         </div>
     </section>
 
-    <!-- 8. よくある質問セクション -->
+    <!-- よくある質問セクション -->
     <section id="faq" class="py-16 md:py-24">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="h2-responsive text-center mb-12 scroll-animate" style="color: var(--navy);">よくあるご質問</h2>
@@ -419,7 +497,7 @@
                         <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </summary>
                     <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
-                        <p>弊社では、不動産集客において最も反響率の高いTikTokの運用に特化しております。ショート動画のプロとして、最大の成果をお約束します。</p>
+                        <p>弊社では、不動産集客において最も反響率の高いTikTokの運用に特化しております。ショート動画のプロとして、最大の成果をお約束します。ご要望に応じてInstagramリールへの同時投稿も可能です。</p>
                     </div>
                 </details>
                 <details class="faq-item bg-white rounded-lg card-shadow">
@@ -446,13 +524,93 @@
                         <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </summary>
                     <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
-                        <p>反響へのご対応は、お客様の営業担当者様に直接お願いしております。熱量の高いお客様を取りこぼさず、スピーディーな内見や来店に繋げるためには、物件を最もよく知るプロである貴社が直接ご対応いただくのが最善と考えているためです。私たちは、質の高い反響を創出することに全力を注ぎます。</p>
+                        <p>反響へのご対応は、お客様の営業担当者様に直接お願いしております。熱量の高いお客様を取りこぼさず、スピーディーな内見や来店に繋げるためには、物件を最もよく知るプロである貴社が直接ご対応いただくのが最善と考えているためです。オプションでDMの一次返信代行も承っておりますので、ご相談ください。</p>
                     </div>
                 </details>
             </div>
         </div>
     </section>
     
+    <!-- ★NEW: 運用開始までの流れセクション -->
+    <section id="flow" class="py-16 md:py-24" style="background-color: var(--light-gray);">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="h2-responsive mb-16 scroll-animate" style="color: var(--navy);">運用開始までの流れ</h2>
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Desktop timeline line -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-300"></div>
+                
+                <div class="relative grid md:grid-cols-4 gap-y-16 md:gap-y-0 md:gap-x-8">
+                    <!-- Step 1 -->
+                    <div class="scroll-animate text-center relative">
+                        <div class="relative z-10">
+                            <div class="mx-auto w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white card-shadow" style="background-color: var(--gold); color: var(--navy);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="md:hidden mx-auto mt-4 w-0.5 h-16 bg-gray-300"></div>
+                        <div class="mt-4">
+                            <p class="text-lg font-bold" style="color: var(--gold);">STEP 01</p>
+                            <h3 class="text-xl font-bold my-2" style="color: var(--navy);">お問い合わせ</h3>
+                            <p class="text-gray-600 text-sm text-left">まずはお電話またはLINEにて、貴社の現状の課題や目標をお聞かせください。無理な営業は一切いたしません。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="scroll-animate text-center relative" style="transition-delay: 0.2s;">
+                        <div class="relative z-10">
+                            <div class="mx-auto w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white card-shadow" style="background-color: var(--gold); color: var(--navy);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="md:hidden mx-auto mt-4 w-0.5 h-16 bg-gray-300"></div>
+                        <div class="mt-4">
+                            <p class="text-lg font-bold" style="color: var(--gold);">STEP 02</p>
+                            <h3 class="text-xl font-bold my-2" style="color: var(--navy);">ご契約・戦略設計</h3>
+                            <p class="text-gray-600 text-sm text-left">ご提案内容にご納得後、ご契約となります。競合分析や貴社の強みを基に、最適なアカウントの方向性を設計します。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="scroll-animate text-center relative" style="transition-delay: 0.4s;">
+                        <div class="relative z-10">
+                            <div class="mx-auto w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white card-shadow" style="background-color: var(--gold); color: var(--navy);">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="md:hidden mx-auto mt-4 w-0.5 h-16 bg-gray-300"></div>
+                        <div class="mt-4">
+                            <p class="text-lg font-bold" style="color: var(--gold);">STEP 03</p>
+                            <h3 class="text-xl font-bold my-2" style="color: var(--navy);">撮影・動画制作</h3>
+                            <p class="text-gray-600 text-sm text-left">戦略に基づき、物件の魅力を最大限に引き出す撮影を実施。プロの編集技術で視聴者を惹きつける動画を制作します。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="scroll-animate text-center relative" style="transition-delay: 0.6s;">
+                        <div class="relative z-10">
+                            <div class="mx-auto w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold border-4 border-white card-shadow" style="background-color: var(--gold); color: var(--navy);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-lg font-bold" style="color: var(--gold);">STEP 04</p>
+                            <h3 class="text-xl font-bold my-2" style="color: var(--navy);">運用開始</h3>
+                            <p class="text-gray-600 text-sm text-left">制作した動画を最適なタイミングで投稿。投稿後の数値を分析し、PDCAを回しながらアカウントの成長を最大化させます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 9. CTAセクション -->
     <section id="cta" class="py-16 md:py-24">
         <div class="container mx-auto px-6 text-center">
@@ -463,7 +621,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
                     <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.4,18.09h-1a.38.38,0,0,1-.38-.38V16.33a.38.38,0,0,1,.38-.38h1a2,2,0,0,0,2-2V12.5a2,2,0,0,0-2-2h-1a.38.38,0,0,1-.38-.38V8.75a.38.38,0,0,1,.38-.38h1a4,4,0,0,1,4,4v1.45a4,4,0,0,1-4,4ZM7.6,18.09h1a.38.38,0,0,0,.38-.38V8.75a.38.38,0,0,0-.38-.38h-1a4,4,0,0,0-4,4v1.45a4,4,0,0,0,4,4Zm.38-7.84v4.4a.38.38,0,0,1-.38.38h-1a2,2,0,0,1-2-2V12.5a2,2,0,0,1,2-2h1a.38.38,0,0,1,.38.38ZM12,18.09a.38.38,0,0,0,.38-.38V13.88h1.25a.38.38,0,0,0,.38-.38v-1a.38.38,0,0,0-.38-.38H12.38V8.75a.38.38,0,0,0-.38-.38h-1a.38.38,0,0,0-.38.38v3.37H9.38a.38.38,0,0,0-.38.38v1a.38.38,0,0,0,.38.38h1.25v3.83a.38.38,0,0,0,.38.38Zm10.65-4.4a8.65,8.65,0,1,0-15,6.59,8.51,8.51,0,0,0,4.87,1.5,8.65,8.65,0,0,0,10.1-8.09Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7 5V19H17V17H9V5z"/></svg>
                         LINEで無料相談・お見積もり
                     </a>
                     <a href="tel:080-5273-8522" class="cta-button btn-gold text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
@@ -502,4 +660,5 @@
     </script>
 </body>
 </html>
+
 
