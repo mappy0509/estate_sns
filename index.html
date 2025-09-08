@@ -24,21 +24,22 @@
             font-family: 'Noto Sans JP', sans-serif;
             /* デスクトップ表示時に固定ヘッダー分の余白を確保 */
             padding-top: 80px;
+            overflow-x: hidden; /* はみ出しを防止 */
         }
 
         /* clamp()関数を使ったレスポンシブ見出し */
         .h1-responsive {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(1.8rem, 7vw, 3.8rem);
             line-height: 1.3;
             font-weight: 900;
         }
         .h2-responsive {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.5rem, 6vw, 2.8rem);
             line-height: 1.5;
             font-weight: 900;
         }
         .h3-responsive {
-            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-size: clamp(1.3rem, 5.5vw, 1.9rem); /* ★文字サイズを大きく調整 */
             line-height: 1.5;
             font-weight: 700;
         }
@@ -132,7 +133,7 @@
             transform: rotate(45deg);
         }
 
-        /* ★「3つの理由」の装飾 */
+        /* 「3つの理由」の装飾 */
         .decorative-underline {
             display: inline-block;
             position: relative;
@@ -150,7 +151,7 @@
             border-radius: 2px;
         }
         
-        /* ★スクロールアニメーション */
+        /* スクロールアニメーション */
         .scroll-animate {
             opacity: 0;
             transform: translateY(40px);
@@ -166,6 +167,13 @@
             body {
                 padding-top: 0;
                 padding-bottom: 80px;
+            }
+        }
+        
+        /* ★タブレットサイズ以上で見出しの自動改行を無効化 */
+        @media (min-width: 768px) {
+            .h1-responsive, .h2-responsive, .h3-responsive {
+                white-space: nowrap;
             }
         }
     </style>
