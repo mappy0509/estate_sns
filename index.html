@@ -90,7 +90,7 @@
         .cta-button {
             font-weight: bold;
             border-radius: 9999px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.2);
             white-space: nowrap;
             display: inline-flex;
@@ -105,9 +105,14 @@
             background-image: linear-gradient(45deg, #dcb365, #c5a05b);
             color: var(--navy);
         }
-        .btn-green {
-            background-image: linear-gradient(45deg, #25D366, #06C755);
-            color: var(--white);
+        .btn-navy {
+            background-color: var(--navy);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .btn-navy:hover {
+            background-color: var(--gold);
+            color: var(--navy);
         }
 
         /* よくある質問 アコーディオン */
@@ -131,6 +136,24 @@
         }
         .faq-item[open] .faq-icon {
             transform: rotate(45deg);
+        }
+
+        /* モーダル（ポップアップ）用のスタイル */
+        #contact-modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #modal-content {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        #contact-modal.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #contact-modal.is-open #modal-content {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         /* 「3つの理由」の装飾 */
@@ -193,9 +216,12 @@
                     </svg>
                     お電話でのお問い合わせ
                 </a>
-                <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg py-3 px-8">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-2"><path fill="currentColor" d="M16.22,10.38a1.21,1.21,0,0,0-1.72,0l-.9,1.11a.48.48,0,0,1-.68,0l-2.4-2.4a.48.48,0,0,1,0-.68l1.11-.9a1.21,1.21,0,0,0,0-1.72L10.38,4.55a1.21,1.21,0,0,0-1.72,0L7.15,6.06a3,3,0,0,0-.7,3.58,18.53,18.53,0,0,0,8,8,3,3,0,0,0,3.58-.7l1.51-1.51a1.21,1.21,0,0,0,0-1.72Z M19.46,21H4.54A2.54,2.54,0,0,1,2,18.46V4.54A2.54,2.54,0,0,1,4.54,2H19.46A2.54,2.54,0,0,1,22,4.54V18.46A2.54,2.54,0,0,1,19.46,21Z"></path></svg>
-                    LINEで無料相談
+                <a href="#" class="cta-button btn-navy text-lg py-3 px-8 open-modal">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                     </svg>
+                    メールで無料相談
                 </a>
             </div>
         </div>
@@ -209,9 +235,12 @@
             </svg>
             電話
         </a>
-        <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="flex justify-center items-center py-4 font-bold text-lg" style="background-color: var(--green); color: var(--white);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-2"><path fill="currentColor" d="M16.22,10.38a1.21,1.21,0,0,0-1.72,0l-.9,1.11a.48.48,0,0,1-.68,0l-2.4-2.4a.48.48,0,0,1,0-.68l1.11-.9a1.21,1.21,0,0,0,0-1.72L10.38,4.55a1.21,1.21,0,0,0-1.72,0L7.15,6.06a3,3,0,0,0-.7,3.58,18.53,18.53,0,0,0,8,8,3,3,0,0,0,3.58-.7l1.51-1.51a1.21,1.21,0,0,0,0-1.72Z M19.46,21H4.54A2.54,2.54,0,0,1,2,18.46V4.54A2.54,2.54,0,0,1,4.54,2H19.46A2.54,2.54,0,0,1,22,4.54V18.46A2.54,2.54,0,0,1,19.46,21Z"></path></svg>
-            LINE
+        <a href="#" class="open-modal flex justify-center items-center py-4 font-bold text-lg" style="background-color: var(--navy); color: var(--gold);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            メール
         </a>
     </footer>
 
@@ -593,7 +622,7 @@
                         <svg class="faq-icon w-6 h-6" style="color: var(--gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </summary>
                     <div class="faq-answer text-gray-600 border-t border-gray-200 pt-4">
-                        <p>現在は福岡県内とその近郊エリア（佐賀、熊本の一部）を中心にサービスを提供しております。その他のエリアのお客様も、交通費を別途お見積もりの上、対応可能な場合がございますので、まずはお気軽にご相談ください。</p>
+                        <p>現在は福岡県福岡市内を中心にサービスを提供しております。その他のエリアのお客様も、交通費を別途お見積もりの上、対応可能な場合がございますので、まずはお気軽にご相談ください。</p>
                     </div>
                 </details>
             </div>
@@ -689,9 +718,12 @@
                     まずは、貴社の状況をお聞かせください。<br>無理な営業は一切いたしません。相談・お見積もりは無料です。
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-                    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" rel="noopener noreferrer" class="cta-button btn-green text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-2"><path fill="currentColor" d="M16.22,10.38a1.21,1.21,0,0,0-1.72,0l-.9,1.11a.48.48,0,0,1-.68,0l-2.4-2.4a.48.48,0,0,1,0-.68l1.11-.9a1.21,1.21,0,0,0,0-1.72L10.38,4.55a1.21,1.21,0,0,0-1.72,0L7.15,6.06a3,3,0,0,0-.7,3.58,18.53,18.53,0,0,0,8,8,3,3,0,0,0,3.58-.7l1.51-1.51a1.21,1.21,0,0,0,0-1.72Z M19.46,21H4.54A2.54,2.54,0,0,1,2,18.46V4.54A2.54,2.54,0,0,1,4.54,2H19.46A2.54,2.54,0,0,1,22,4.54V18.46A2.54,2.54,0,0,1,19.46,21Z"></path></svg>
-                        LINEで無料相談・お見積もり
+                    <a href="#" class="cta-button btn-navy text-lg md:text-xl py-4 px-10 w-full sm:w-auto open-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                           <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        メールで無料相談・お見積もり
                     </a>
                     <a href="tel:080-5273-8522" class="cta-button btn-gold text-lg md:text-xl py-4 px-10 w-full sm:w-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 006.255 6.255l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C6.477 18 2 13.523 2 8V5a1 1 0 011-1h.001z"/></svg>
@@ -708,8 +740,76 @@
         </div>
     </footer>
 
+    <!-- お問い合わせモーダル -->
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-start justify-center z-50 p-6 overflow-y-auto hidden opacity-0 pointer-events-none">
+        <div id="modal-overlay" class="absolute inset-0"></div>
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg relative z-10" id="modal-content">
+            <!-- ヘッダー -->
+            <div class="flex justify-between items-center p-5 border-b rounded-t-lg" style="background-color: var(--light-gray);">
+                <h3 class="text-xl font-bold" style="color: var(--navy);">メールでお問い合わせ</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
+            </div>
+            <!-- フォーム -->
+            <form id="contact-form" class="p-6 space-y-4">
+                <div>
+                    <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">御社名 <span class="text-red-500">*</span></label>
+                    <input type="text" id="company-name" name="company-name" required class="block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: var(--gold);">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" required class="block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: var(--gold);">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">電話番号 <span class="text-red-500">*</span></label>
+                    <input type="tel" id="phone" name="phone" required class="block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: var(--gold);">
+                </div>
+                <div>
+                    <label for="plan-selection" class="block text-sm font-medium text-gray-700 mb-1">検討中のプラン <span class="text-red-500">*</span></label>
+                    <select id="plan-selection" name="plan-selection" required class="block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: var(--gold);">
+                        <option value="" disabled selected>プランを選択してください</option>
+                        <option value="検討中">検討中</option>
+                        <option value="ベーシックプラン">ベーシックプラン</option>
+                        <option value="スタンダードプラン">スタンダードプラン</option>
+                        <option value="プレミアムプラン">プレミアムプラン</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">ご希望のオプション（複数選択可）</label>
+                    <div class="mt-2 space-y-2">
+                        <div class="flex items-center">
+                            <input id="option-ai" name="options" type="checkbox" value="AIナレーション追加" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-offset-0" style="color: var(--gold); --tw-ring-color: var(--gold);">
+                            <label for="option-ai" class="ml-2 block text-sm text-gray-900">AIナレーション追加</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="option-influencer" name="options" type="checkbox" value="インフルエンサーキャスティング" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-offset-0" style="color: var(--gold); --tw-ring-color: var(--gold);">
+                            <label for="option-influencer" class="ml-2 block text-sm text-gray-900">インフルエンサーキャスティング</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="option-instagram" name="options" type="checkbox" value="Instagramリールへの同時投稿" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-offset-0" style="color: var(--gold); --tw-ring-color: var(--gold);">
+                            <label for="option-instagram" class="ml-2 block text-sm text-gray-900">Instagramリールへの同時投稿</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="option-line" name="options" type="checkbox" value="LINE公式運用代行" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-offset-0" style="color: var(--gold); --tw-ring-color: var(--gold);">
+                            <label for="option-line" class="ml-2 block text-sm text-gray-900">LINE公式運用代行</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">その他ご相談</label>
+                    <textarea id="message" name="message" rows="4" class="block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-offset-2" style="--tw-ring-color: var(--gold);"></textarea>
+                </div>
+                <div class="pt-4 text-center">
+                    <button type="submit" id="submit-button" class="cta-button btn-gold text-lg py-3 px-10 w-full sm:w-auto">
+                        入力内容を送信する
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // スクロールアニメーションのロジック
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -725,7 +825,76 @@
             targets.forEach(target => {
                 observer.observe(target);
             });
+
+            // --- ここからモーダルのロジック ---
+            const modal = document.getElementById('contact-modal');
+            const openModalButtons = document.querySelectorAll('.open-modal');
+            const closeModalButton = document.getElementById('close-modal');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const contactForm = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
+
+            const openModal = (e) => {
+                e.preventDefault();
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // 背景スクロール防止
+                setTimeout(() => modal.classList.add('is-open'), 10);
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('is-open');
+                document.body.style.overflow = ''; // 背景スクロール防止を解除
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            };
+
+            openModalButtons.forEach(button => button.addEventListener('click', openModal));
+            closeModalButton.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const companyName = document.getElementById('company-name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const planSelection = document.getElementById('plan-selection').value;
+                const selectedOptions = Array.from(document.querySelectorAll('input[name="options"]:checked'))
+                                             .map(cb => cb.value)
+                                             .join(', ');
+                const message = document.getElementById('message').value;
+
+                const subject = encodeURIComponent('ウェブサイトからのお問い合わせ');
+                const body = encodeURIComponent(
+`御社名: ${companyName}
+メールアドレス: ${email}
+電話番号: ${phone}
+検討中のプラン: ${planSelection}
+ご希望のオプション: ${selectedOptions || 'なし'}
+
+その他ご相談:
+${message}
+`
+                );
+
+                const mailtoLink = `mailto:info@japan-agent.jp?subject=${subject}&body=${body}`;
+                
+                // 送信ボタンのテキスト変更と無効化
+                submitButton.textContent = '送信処理中...';
+                submitButton.disabled = true;
+
+                // メーラーを起動
+                window.location.href = mailtoLink;
+
+                // 少し時間を置いてからモーダルを閉じ、フォームをリセット
+                setTimeout(() => {
+                    closeModal();
+                    contactForm.reset();
+                    submitButton.textContent = '入力内容を送信する';
+                    submitButton.disabled = false;
+                }, 1500);
+            });
         });
     </script>
 </body>
 </html>
+
