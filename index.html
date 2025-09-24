@@ -26,6 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden; /* 横スクロールを厳密に防止 */
         }
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -199,13 +200,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 padding-bottom: 80px;
             }
         }
-        
-        /* タブレットサイズ以上で見出しの自動改行を無効化 */
-        @media (min-width: 768px) {
-            .h1-responsive, .h2-responsive, .h3-responsive {
-                white-space: nowrap;
-            }
-        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -256,20 +250,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <!-- 1. ヒーローセクション -->
-    <section class="text-white text-center relative overflow-hidden py-24 md:py-36">
-        <div class="absolute inset-0" style="background-color: var(--navy);"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h1 class="h1-responsive mb-6 scroll-animate">
-                宅建士が担当。<br>SNS運用、ぜんぶ<span style="color: var(--gold);">丸投げ</span>。
-            </h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed scroll-animate" style="transition-delay: 0.2s;">
-                不動産実務経験者が撮影・編集・投稿をすべて代行。<br class="hidden sm:block">
-                社長は“質の高い反響”だけにご期待ください。
-            </p>
-            <div class="scroll-animate" style="transition-delay: 0.4s;">
-                <a href="#cta" class="cta-button btn-gold text-lg md:text-xl py-4 px-10">
-                    まずは無料で相談してみる
-                </a>
+    <section class="text-white relative overflow-hidden">
+        <!-- 背景レイヤー (住宅画像 + ネイビーオーバーレイ) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+                 alt="背景のモダンな住宅" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0" style="background-color: rgba(0, 31, 63, 0.75);"></div>
+        </div>
+    
+        <!-- コンテンツコンテナ (GridレイアウトでスマホとPCの表示を切り替え) -->
+        <div class="relative z-10 container mx-auto">
+            <div class="grid md:grid-cols-2">
+                <!-- テキストコンテンツ (スマホでは画像と重なり、PCでは左側) -->
+                <div class="col-start-1 row-start-1 z-10 flex items-center px-4 py-24 sm:py-32 md:py-20">
+                    <div>
+                        <h1 class="font-black leading-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 scroll-animate" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                            宅建士が担当。<br>SNS運用、ぜんぶ<span style="color: var(--gold);">丸投げ</span>。
+                        </h1>
+                        <p class="text-xs sm:text-sm md:text-lg max-w-full mb-6 leading-relaxed scroll-animate" style="transition-delay: 0.2s; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                            不動産実務経験者が撮影・編集・投稿をすべて代行。<br class="hidden md:block">
+                            社長は“質の高い反響”だけにご期待ください。
+                        </p>
+                        <div class="scroll-animate" style="transition-delay: 0.4s;">
+                            <a href="#cta" class="cta-button btn-gold text-xs sm:text-sm md:text-lg py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8">
+                                まずは無料で相談してみる
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- ヒーロー画像 (スマホでは背景、PCでは右側) -->
+                <div class="col-start-1 row-start-1 md:col-start-2">
+                    <img src="img/hero-image.png" alt="不動産SNS運用代行のイメージ" class="w-full h-full object-cover object-right">
+                </div>
             </div>
         </div>
     </section>
@@ -417,7 +431,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center scroll-animate">
                 <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="h2-responsive mb-6" style="color: var(--navy);">
+                    <!-- FIXED: Added md:whitespace-normal to allow text wrapping on medium screens and up -->
+                    <h2 class="h2-responsive mb-6 md:whitespace-normal" style="color: var(--navy);">
                         ポータルサイトに頼らない、<br>
                         ファン化が生んだ<span style="color: var(--gold);">月間売上100万円の実績</span>
                     </h2>
